@@ -13,7 +13,7 @@ To make a Parkitect mod, you need four things:
 - A C# Compiler
 - A C# Disassembler
 
-I used the DRM free version of Parkitect from [Humble Bundle][parkitect-humble], [Jetbrains dotPeek][dotpeek] for my disassembler, and [Visual Studio Community 2017] as my compiler - and the easiest way to install the .NET SDK.
+I used the DRM free version of Parkitect from [Humble Bundle][parkitect-humble], [Jetbrains dotPeek][dotpeek] for my disassembler, and [Visual Studio Community 2017][vs2017] as my compiler - and the easiest way to install the .NET SDK.
 
 ## Project Setup
 
