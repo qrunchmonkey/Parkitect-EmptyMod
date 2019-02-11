@@ -51,8 +51,17 @@
       <HintPath>..\Parkitect_Version_1.2a_64bit\Parkitect_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\Parkitect_Version_1.2a_64bit\Parkitect_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\Parkitect_Version_1.2a_64bit\Parkitect_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
     <Compile Include="ModMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

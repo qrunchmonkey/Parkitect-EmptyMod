@@ -5,17 +5,24 @@ using UnityEngine;
 
 namespace EmptyMod
 {
-    public class ModMain : IMod
+    public class ModMain : IMod, IModSettings
     {
-        // Mod Metadata
-        public string Name => "Empty Mod";
+        public ModMain()
+        {
+            Name = "Empty Mod";
+            Description = "This is a skeleton of a mod for Parkitect 1.2 or higher.";
+            Identifier = "com.krisharris.nullmod"; //Reverse DNS is best for identifiers, but anything unique works.
 
-        public string Description => "This is a skeleton of a mod for Parkitect 1.2 or higher.";
+            Config = new Config(this);
+            Config.Load();
+        }
 
-        string IMod.Identifier => "com.krisharris.nullmod";
-
+        public string Name { get; }
+        public string Description { get; }
+        public string Identifier { get; }
+        public EmptyMod.Config Config { get; }
         // Helpers
-        public string ModPath
+        public string ModDir
         {
             get
             {
@@ -23,19 +30,47 @@ namespace EmptyMod
             }
         }
 
+        public string ConfigPath
+        {
+            get
+            {
+                return FilePaths.getFolderPath(Identifier + ".config");
+            }
+        }
+
         // IMod handler
         public void onEnabled()
         {
+            Config.Load();
+            Config.Save();
+
             //TODO: Add code to load and setup your new mod
-            Debug.Log((object)"Loaded Empty Mod!");
+            Debug.Log("[EmptyMod]: Enabled!");
         }
 
         public void onDisabled()
         {
             //TODO: Add code to disable your mod.
-            Debug.Log((object)"Unloaded Empty Mod!");
+            Debug.Log("[EmptyMod]: Disabled!");
         }
 
+        //IModSettings handler
+
+        public void onSettingsOpened()
+        {
+            Debug.Log("[EmptyMod]: Settings Opened");
+        }
+
+        public void onSettingsClosed()
+        {
+            Config.Save();
+            Debug.Log("[EmptyMod]: Settings Closed");
+        }
+
+        public void onDrawSettingsUI()
+        {
+            Config.onDrawUI();
+        }
 
     }
 }
